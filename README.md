@@ -32,7 +32,7 @@ As a user, when I am finished with the media detail I want to click a button to 
 
 ## API Used
 
-[NASA](https://images-api/nasa.gov)
+[NASA MEDIA EXAMPLE](https://images-api.nasa.gov/search?q=mars%20moons)
 
 ## Component Library
 
@@ -43,6 +43,6 @@ react-tachyons
 
 Add checkboxes to filter results based on data (image, video, audio).
 
-Add in second NASA API to show the weather on Mars.
+Add in second NASA API to show the weather on Mars: [MARS WEATHER EXAMPLE](https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0)
 
 Add React D3 library for visualization/animation for the weather on Mars.
