@@ -58,6 +58,8 @@ react-tachyons
 
 ## Strech Goals
 
+Add pagination for the multiple search results.
+
 Add checkboxes to filter results based on data (image, video, audio).
 
 Add in second NASA API to show the weather on Mars: [MARS WEATHER EXAMPLE](https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0)
