@@ -36,7 +36,24 @@ As a user, when I am finished with the media detail I want to click a button to 
 
 ## Component Library
 
+(May be amended at any time during development)
+
+Login.jsx
+
+Register.jsx
+
+Search.jsx
+
+ImageDetails.jsx
+
+VideoDetails.jsx
+
+AudioDetails.jsx
+
+## Additional packages that may be used - subject to change
+
 react-tsparticles
+
 react-tachyons
 
 ## Strech Goals
