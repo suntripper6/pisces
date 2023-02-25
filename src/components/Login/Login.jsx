@@ -1,39 +1,68 @@
-const Login = (props) => {
+import { useContext, useEffect, useRef, useState } from "react";
+import Register from "../Register/Register";
+// import AuthCtx from "../../context/AuthenticationProvider";
+
+const Login = () => {
+  const userRef = useRef();
+  //const errorRef = useRef();
+
+  // const { setAuth } = useContext(AuthCtx);
+
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    setMessage("");
+  }, [user, password]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setUser("");
+    setPassword("");
+    setIsLoggedIn(true);
+  };
+
   return (
-    <div className="card">
-      <h2>Please login</h2>
-      <form onSubmit={props.submit}>
-        <label>username:</label>
-        <input
-          type="text"
-          placeholder="username"
-          id="username"
-          onChange={props.change}
-          value={props.username}
-        ></input>
+    <section>
+      <div className="card">
+        <h2>Please login</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">username:</label>
+          <input
+            type="text"
+            placeholder="username"
+            id="username"
+            ref={userRef}
+            onChange={(e) => setUser(e.target.value)}
+            value={user}
+            required
+          ></input>
 
-        <input
-          type="password"
-          placeholder="Password"
-          id="password"
-          onChange={props.change}
-          value={props.password}
-        />
-        <label htmlFor="password">Password</label>
+          <label htmlFor="password">password</label>
+          <input
+            type="password"
+            placeholder="password"
+            id="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            required
+          />
 
-        <input
-          type="password"
-          placeholder="Confirm password"
-          id="passwordConfirm"
-          onChange={props.change}
-          value={props.passwordConfirm}
-        />
-        <label htmlFor="passwordConfirm">Confirm password</label>
-        <button type="submit">Sign Up</button>
-        <p>Passwords must match</p>
-      </form>
-      <p>{props.message}</p>
-    </div>
+          <button type="submit">login</button>
+        </form>
+        <p>
+          no account?
+          <br />
+          <Register />
+        </p>
+      </div>
+    </section>
   );
 };
 

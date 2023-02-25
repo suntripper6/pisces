@@ -1,78 +1,80 @@
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
-const Register = (props) => {
-  const [name, setName] = useState("");
+const USER_REGEXP = /^[a-zA-Z][a-zA-Z0-9-_]{5, 30}$/;
+const PASSWORD_REGEXP =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8-30}$/;
+
+const Register = () => {
+  const userRef = useRef();
+  const errorRef = useRef();
+
+  const [user, setUser] = useState("");
+  const [isValidUser, setIsValidUser] = useState(false);
+  const [isUserFocus, setIsUserFocus] = useState(false);
+
   const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [isValidPassword, setIsValidPassword] = useState(false);
+  const [isPasswordFocus, setIsPasswordFocus] = useState(false);
+
+  const [passwordMatch, setPasswordMatch] = useState("");
+  const [isPwdMatch, setIsPwdMatch] = useState(false);
+  const [isPasswordMatchFocus, setIsPasswordMatchFocus] = useState(false);
+
+  const [isRegSuccess, setIsRegSuccess] = useState(false);
+
   const [message, setMessage] = useState("");
-  const [isSignedIn, setSignedIn] = useState(false);
 
-  const onNameChange = (e) => {
-    e.preventDefault();
-    setName({ ...name, [e.target.id]: e.target.value });
-  };
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
 
-  const onEmailChange = (e) => {
-    e.preventDefault();
-    setEmail({ ...email, [e.target.id]: e.target.value });
-  };
+  useEffect(() => {
+    setIsValidUser(USER_REGEXP.test(user));
+  }, [user]);
 
-  const onPasswordChange = (e) => {
-    e.preventDefault();
-    setPassword({ ...password, [e.target.id]: e.target.value });
-  };
+  useEffect(() => {
+    setIsValidPassword(PASSWORD_REGEXP.test(password));
+    setIsPwdMatch(password === passwordMatch);
+  }, [password, passwordMatch]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (name === "" || password === "" || email === "") {
-      setMessage("All form fields must be filled in");
-    } else {
-      setSignedIn(true);
-      setMessage("Success!");
-    }
-  };
-
-  return isSignedIn === false ? (
-    <div className="form">
-      <h2>Please Sign In</h2>
-      <div>
-        <form></form>
-        <div className="username">
-          <label htmlFor="name">Username</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            onChange={onNameChange}
-          ></input>
-        </div>
-        <div className="email">
-          <label htmlFor="email-address">Email</label>
-          <input
-            type="email"
-            name="email-address"
-            id="email-address"
-            onChange={onEmailChange}
-          />
-        </div>
-        <div className="password">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={onPasswordChange}
-          />
-        </div>
-      </div>
-      <div>
-        <button type="submit" className="btn" onClick={handleSubmit}>
-          submit
-        </button>
-      </div>
-    </div>
-  ) : (
-    <h1>{message}</h1>
+  return (
+    <section>
+      <h1>Register</h1>
+      <form>
+        <label htmlFor="username">username: </label>
+        <input
+          autoComplete="off"
+          type="text"
+          id="username"
+          ref={userRef}
+          onChange={(e) => setUser(e.target.value)}
+          onFocus={() => setIsUserFocus(true)}
+          onBlur={() => setIsUserFocus(false)}
+          required
+          value={user}
+        />
+        <label htmlFor="password">password: </label>
+        <input
+          type="password"
+          id="password"
+          onChange={(e) => setPassword(e.target.value)}
+          onFocus={() => setIsPasswordFocus(true)}
+          onBlur={() => setIsPasswordFocus(false)}
+          required
+          value={password}
+        />
+        <label htmlFor="confirm-password">confirm password: </label>
+        <input
+          type="password"
+          id="confirm-password"
+          onChange={(e) => setPasswordMatch(e.target.value)}
+          onFocus={() => setIsPasswordMatchFocus(true)}
+          onBlur={() => setIsPasswordMatchFocus(false)}
+          required
+          value={passwordMatch}
+        />
+      </form>
+    </section>
   );
 };
 
