@@ -1,8 +1,9 @@
 import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const USER_REGEXP = /^[a-zA-Z][a-zA-Z0-9-_]{5, 30}$/;
+const USER_REGEXP = /^[A-z][A-z0-9-_]{5,30}$/;
 const PASSWORD_REGEXP =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8-30}$/;
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@$%&]).{10,30}$/;
 
 const Register = () => {
   const userRef = useRef();
@@ -73,6 +74,9 @@ const Register = () => {
           required
           value={passwordMatch}
         />
+        <button>
+          <Link to="/login">Submit</Link>
+        </button>
       </form>
     </section>
   );
