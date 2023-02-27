@@ -3,19 +3,22 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const SearchDetails = (props) => {
-  console.log(props.embeddedLink);
   const [video, setVideo] = useState([]);
-  const [JSONFile, setJSONFile] = useState();
+  const [JSONFile, setJSONFile] = useState([]);
 
-  //   useEffect(() => {
-  //     props.searchResults.map((result, index) => setJSONFile(result.href));
-  //     const getVideo = async () => {
-  //       const response = await axios.get(props.searchResults);
-  //       console.log(response);
-  //       setVideo(response);
-  //     };
-  //     getVideo();
-  //   }, []);
+  useEffect(() => {
+    props.embeddedLink.forEach((element) => {
+      setJSONFile(element);
+    });
+    JSONFile.forEach((element) => {
+      const getVideo = async () => {
+        const response = await axios.get(element);
+        console.log(response);
+      };
+      getVideo();
+    });
+  }, []);
+
   if (props.searchResults) {
     return (
       <div className="grid">

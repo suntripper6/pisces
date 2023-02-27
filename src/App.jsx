@@ -1,4 +1,4 @@
-import "./App.css";
+import "./assets/styles/App.css";
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
