@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../globals";
-import SearchDetails from "../SearchDetails/SearchDetails";
 import "../../components/Search/Search.css";
 import "../../context/SearchResultsContext";
 import { SearchResultsContext } from "../../context/SearchResultsContext";
+import SearchDetails from "../SearchDetails/SearchDetails";
 
-const Search = () => {
+const Search = ({ searchResults, setSearchResults }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  //const [searchResults, setSearchResults] = useState([]);
 
   const search = "search?q=";
   const searchItem = "space";
@@ -19,19 +19,22 @@ const Search = () => {
       if (searchQuery === "" || searchQuery === null) {
         const response = await axios.get(`${BASE_URL}/${search}${searchItem}`);
         setSearchResults(response.data.collection.items);
+      } else {
+        const response = await axios
+          .get(`${BASE_URL}/${search}${searchQuery}`)
+          .catch((error) => {
+            if (error.response) {
+              console.log(`Error response status: ${error.response.status}`);
+            } else if (error.request) {
+              console.log(`Error response request: ${error.response.request}`);
+            } else {
+              console.log(`Errors: ${error.message}`);
+            }
+          });
+        console.log(response);
+        setSearchResults(response.data.collection.items);
+        console.log(searchResults);
       }
-      const response = await axios
-        .get(`${BASE_URL}/${search}${searchQuery}`)
-        .catch((error) => {
-          if (error.response) {
-            console.log(`Error response status: ${error.response.status}`);
-          } else if (error.request) {
-            console.log(`Error response request: ${error.response.request}`);
-          } else {
-            console.log(`Errors: ${error.message}`);
-          }
-        });
-      setSearchResults(response.data.collection.items);
     };
     getData();
   }, [searchQuery]);
@@ -57,22 +60,19 @@ const Search = () => {
           />
         </label>
       </div>
-      <SearchResultsContext.Provider value={searchResults}>
-        <div className="grid">
-          {searchResults.map((result, index) => (
-            <div
-              key={index}
-              className="card"
-              onClick={() => showDetails(index)}
-            >
-              {result.links ? (
-                <img src={result.links[0].href} alt="nasa" />
-              ) : null}
-            </div>
-          ))}
-        </div>
-        <SearchDetails searchResults={searchResults} />
-      </SearchResultsContext.Provider>
+
+      <div className="grid">
+        {searchResults.map((result, index) => (
+          <div key={index} className="card" onClick={() => showDetails(index)}>
+            {result.links ? (
+              <img src={result.links[0].href} alt="nasa" />
+            ) : null}
+          </div>
+        ))}
+      </div>
+      {/* <SearchResultsContext.Provider value={searchResults}> */}
+      <SearchDetails searchResults={searchResults} />
+      {/* </SearchResultsContext.Provider> */}
     </div>
   );
 };

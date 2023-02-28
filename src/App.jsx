@@ -1,9 +1,6 @@
 import "./assets/styles/App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { BASE_URL } from "./globals";
-// import Login from "./components/Login/Login";
 import ParticlesBG from "particles-bg";
 import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
@@ -11,14 +8,38 @@ import Search from "./components/Search/Search";
 import SearchDetails from "./components/SearchDetails/SearchDetails";
 
 function App() {
+  const [searchResults, setSearchResults] = useState([]);
+
   return (
     <main>
       <div className="App">
-        <ParticlesBG color="#6e6d6d" num={200} type="cobweb" bg={true} />
+        <ParticlesBG
+          style={{ position: "center", zIndex: -1, top: 0, left: 0 }}
+          color="#6e6d6d"
+          num={200}
+          type="cobweb"
+          bg={true}
+        />
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/search" element={<Search />}></Route>
-          <Route path="/search/:id" element={<SearchDetails />}></Route>
+          <Route
+            path="/search"
+            element={
+              <Search
+                searchResults={searchResults}
+                setSearchResults={setSearchResults}
+              />
+            }
+          ></Route>
+          <Route
+            path="/search/:id"
+            element={
+              <SearchDetails
+                searchResults={searchResults}
+                setSearchResults={setSearchResults}
+              />
+            }
+          ></Route>
           <Route path="/register" element={<Register />}></Route>
         </Routes>
       </div>
