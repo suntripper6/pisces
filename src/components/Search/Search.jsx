@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../globals";
-import SearchDetails from "./SearchDetails";
+import SearchDetails from "../SearchDetails/SearchDetails";
 
 //#region OLD CODE for reference
 // const Search = () => {

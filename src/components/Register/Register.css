@@ -25,7 +25,7 @@ label {
 
 input {
   height: 2rem;
-  width: 15rem;
+  width: 20rem;
 }
 
 input,
@@ -36,6 +36,7 @@ button {
 .form-container,
 .input-username,
 .input-password,
+.input-confirm-password,
 .register-here {
   display: flex;
   flex-direction: column;
@@ -49,21 +50,22 @@ button {
   opacity: 0.8;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  margin-left: 23rem;
-  margin-right: 23rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
 }
 
 /* .input-group {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  align-items: center;
-  justify-content: center;
-} */
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+    justify-content: center;
+  } */
 
-.btn-login {
+.btn-submit {
   grid-column: 2/3;
   background-color: rgb(133, 219, 133);
   width: 70%;
   margin-top: 1rem;
-  margin-left: -2.25rem;
+  margin-left: -4rem;
+  margin-bottom: 1rem;
 }

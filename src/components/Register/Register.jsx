@@ -1,9 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "../../components/Register/Register.css";
 
-const USER_REGEXP = /^[A-z][A-z0-9-_]{5,30}$/;
-const PASSWORD_REGEXP =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@$%&]).{10,30}$/;
+// const USER_REGEXP = /^[A-z][A-z0-9-_]{5,30}$/;
+// const PASSWORD_REGEXP =
+//   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@$%&]).{10,30}$/;
 
 const Register = () => {
   const userRef = useRef();
@@ -29,55 +30,62 @@ const Register = () => {
     userRef.current.focus();
   }, []);
 
-  useEffect(() => {
-    setIsValidUser(USER_REGEXP.test(user));
-  }, [user]);
+  // useEffect(() => {
+  //   setIsValidUser(USER_REGEXP.test(user));
+  // }, [user]);
 
-  useEffect(() => {
-    setIsValidPassword(PASSWORD_REGEXP.test(password));
-    setIsPwdMatch(password === passwordMatch);
-  }, [password, passwordMatch]);
+  // useEffect(() => {
+  //   setIsValidPassword(PASSWORD_REGEXP.test(password));
+  //   setIsPwdMatch(password === passwordMatch);
+  // }, [password, passwordMatch]);
 
   return (
     <section>
-      <h1>Register</h1>
-      <form>
-        <label htmlFor="username">username: </label>
-        <input
-          autoComplete="off"
-          type="text"
-          id="username"
-          ref={userRef}
-          onChange={(e) => setUser(e.target.value)}
-          onFocus={() => setIsUserFocus(true)}
-          onBlur={() => setIsUserFocus(false)}
-          required
-          value={user}
-        />
-        <label htmlFor="password">password: </label>
-        <input
-          type="password"
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-          onFocus={() => setIsPasswordFocus(true)}
-          onBlur={() => setIsPasswordFocus(false)}
-          required
-          value={password}
-        />
-        <label htmlFor="confirm-password">confirm password: </label>
-        <input
-          type="password"
-          id="confirm-password"
-          onChange={(e) => setPasswordMatch(e.target.value)}
-          onFocus={() => setIsPasswordMatchFocus(true)}
-          onBlur={() => setIsPasswordMatchFocus(false)}
-          required
-          value={passwordMatch}
-        />
-        <button>
-          <Link to="/login">Submit</Link>
-        </button>
-      </form>
+      <div className="form-container">
+        <div className="greeting">
+          <h1 className="greeting">Register</h1>
+        </div>
+        <form>
+          <label htmlFor="username">username: </label>
+          <input
+            autoComplete="off"
+            type="text"
+            id="username"
+            className="input-username"
+            ref={userRef}
+            onChange={(e) => setUser(e.target.value)}
+            onFocus={() => setIsUserFocus(true)}
+            onBlur={() => setIsUserFocus(false)}
+            required
+            value={user}
+          />
+          <label htmlFor="password">password: </label>
+          <input
+            type="password"
+            id="password"
+            className="input-password"
+            onChange={(e) => setPassword(e.target.value)}
+            onFocus={() => setIsPasswordFocus(true)}
+            onBlur={() => setIsPasswordFocus(false)}
+            required
+            value={password}
+          />
+          <label htmlFor="confirm-password">confirm password: </label>
+          <input
+            type="password"
+            id="confirm-password"
+            className="input-confirm-password"
+            onChange={(e) => setPasswordMatch(e.target.value)}
+            onFocus={() => setIsPasswordMatchFocus(true)}
+            onBlur={() => setIsPasswordMatchFocus(false)}
+            required
+            value={passwordMatch}
+          />
+          <button className="btn-submit">
+            <Link to="/search">Submit</Link>
+          </button>
+        </form>
+      </div>
     </section>
   );
 };

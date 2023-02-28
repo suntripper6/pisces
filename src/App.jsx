@@ -8,7 +8,7 @@ import ParticlesBG from "particles-bg";
 import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 import Search from "./components/Search/Search";
-import SearchDetails from "./components/Search/SearchDetails";
+import SearchDetails from "./components/SearchDetails/SearchDetails";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -46,7 +46,7 @@ function App() {
   return (
     <main>
       <div className="App">
-        <ParticlesBG color="#000000" num={200} type="cobweb" bg={true} />
+        <ParticlesBG color="#6e6d6d" num={200} type="cobweb" bg={true} />
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/register" element={<Register />}></Route>
