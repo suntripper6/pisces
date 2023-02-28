@@ -1,14 +1,9 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import Register from "../Register/Register";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-// import AuthCtx from "../../context/AuthenticationProvider";
 
 const Login = () => {
   const userRef = useRef();
-  //const errorRef = useRef();
-
-  // const { setAuth } = useContext(AuthCtx);
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -40,13 +35,13 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">username:</label>
           <input
-            classname="input-group"
+            className="input-group"
             type="text"
             placeholder="username"
             id="username"
             ref={userRef}
             onChange={(e) => setUser(e.target.value)}
-            value={user}
+            // value={user}
             required
           ></input>
 
@@ -57,7 +52,7 @@ const Login = () => {
             placeholder="password"
             id="password"
             onChange={(e) => setPassword(e.target.value)}
-            value={password}
+            // value={password}
             required
           />
 

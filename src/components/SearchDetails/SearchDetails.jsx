@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { SearchResultsContext } from "../../context/SearchResultsContext";
 
-const SearchDetails = (props) => {
-  console.log(`You have search details: ${props.searchResults}`);
+const SearchDetails = () => {
+  const searchResults = useContext(SearchResultsContext);
+  console.log(`SearchDetailsRoute: ${searchResults}`);
+
   const [details, setDetails] = useState("");
 
   let { id } = useParams();
 
   useEffect(() => {
-    let selectedDetail = props.searchResults[id];
-
+    let selectedDetail = searchResults[id];
+    console.log(`useEffect searchResults: ${selectedDetail}`);
     setDetails(selectedDetail);
   }, []);
 
@@ -22,7 +25,7 @@ const SearchDetails = (props) => {
               CLICK: JSON FILE COLLECTION
             </a>
           </h3> */}
-        <h3>Center: {details.center}</h3>
+        <h3>Center: {details[0].center}</h3>
         {/* <h3>Date Created: {result.data[0].date_created}</h3>
           <h3>Description: {result.data[0].description}</h3>
           <h3>Description_508: {result.data[0].description_508}</h3>

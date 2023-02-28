@@ -58,6 +58,7 @@ const Register = () => {
             onBlur={() => setIsUserFocus(false)}
             required
             value={user}
+            placeholder="username"
           />
           <label htmlFor="password">password: </label>
           <input
@@ -69,6 +70,7 @@ const Register = () => {
             onBlur={() => setIsPasswordFocus(false)}
             required
             value={password}
+            placeholder="password"
           />
           <label htmlFor="confirm-password">confirm password: </label>
           <input
@@ -80,6 +82,7 @@ const Register = () => {
             onBlur={() => setIsPasswordMatchFocus(false)}
             required
             value={passwordMatch}
+            placeholder="confirm password"
           />
           <button className="btn-submit">
             <Link to="/search">Submit</Link>

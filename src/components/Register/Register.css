@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Genos:wght@100;300;400;500;700&display=swap");
+
 body {
   height: 100vh;
   padding-top: 25%;
@@ -26,6 +28,9 @@ label {
 input {
   height: 2rem;
   width: 20rem;
+  font-family: "Genos", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 input,
