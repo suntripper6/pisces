@@ -33,11 +33,14 @@ const Login = () => {
   return (
     <section>
       <div className="form-container">
-        <h1 className="greeting">Welcome! Please login!</h1>
+        <div className="greeting">
+          <h1>Welcome! Please login!</h1>
+        </div>
+
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">username:</label>
           <input
-            classname="input-username"
+            classname="input-group"
             type="text"
             placeholder="username"
             id="username"
@@ -47,9 +50,9 @@ const Login = () => {
             required
           ></input>
 
-          <label htmlFor="password">password</label>
+          <label htmlFor="password">password:</label>
           <input
-            className="input-password"
+            className="input-group"
             type="password"
             placeholder="password"
             id="password"
