@@ -77,6 +77,7 @@ const Search = (props) => {
   const showDetails = (index) => {
     navigate(`${index}`);
   };
+
   return (
     <div className="container">
       <div className="search-container">

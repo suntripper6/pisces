@@ -40,13 +40,13 @@ function App() {
 
   const handleSearchChange = async (e) => {
     await getData(e.target.value);
-    setSearchResults({ value: e.targe.value });
+    setSearchResults({ value: e.target.value });
   };
 
   return (
     <main>
       <div className="App">
-        {/* <ParticlesBG color="#000000" num={200} type="cobweb" bg={true} /> */}
+        <ParticlesBG color="#000000" num={200} type="cobweb" bg={true} />
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/register" element={<Register />}></Route>

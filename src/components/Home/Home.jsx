@@ -1,9 +1,9 @@
 import Login from "../Login/Login";
+import "../../components/Login/Login.css";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome! Please login below</h1>
+    <div className="login">
       <Login />
     </div>
   );

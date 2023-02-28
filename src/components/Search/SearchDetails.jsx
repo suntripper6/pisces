@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const SearchDetails = (props) => {
+  console.log(`You have search details: ${props.searchResults}`);
   const [details, setDetails] = useState("");
 
   let { id } = useParams();

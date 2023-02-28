@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import Register from "../Register/Register";
 import { Link } from "react-router-dom";
+import "./Login.css";
 // import AuthCtx from "../../context/AuthenticationProvider";
 
 const Login = () => {
@@ -31,10 +32,12 @@ const Login = () => {
 
   return (
     <section>
-      <div className="card">
+      <div className="form-container">
+        <h1 className="greeting">Welcome! Please login!</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">username:</label>
           <input
+            classname="input-username"
             type="text"
             placeholder="username"
             id="username"
@@ -46,6 +49,7 @@ const Login = () => {
 
           <label htmlFor="password">password</label>
           <input
+            className="input-password"
             type="password"
             placeholder="password"
             id="password"
@@ -54,13 +58,12 @@ const Login = () => {
             required
           />
 
-          <button type="submit">
+          <button type="submit" className="btn-login">
             <Link to="/search">login</Link>
           </button>
         </form>
-        <p>
+        <p className="register-here">
           no account?
-          <br />
           <Link to="/register">Register Here</Link>
         </p>
       </div>
