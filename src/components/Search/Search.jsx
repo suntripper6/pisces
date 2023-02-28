@@ -3,6 +3,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../globals";
 import SearchDetails from "../SearchDetails/SearchDetails";
+import "../../components/Search/Search.css";
 
 //#region OLD CODE for reference
 // const Search = () => {
@@ -79,9 +80,11 @@ const Search = (props) => {
   };
 
   return (
-    <div className="container">
-      <div className="search-container">
-        <span className="search-only">Search NASA </span>
+    <div className="form-container">
+      <div className="greeting">
+        <h1 className="search-only">Search NASA </h1>
+      </div>
+      <div>
         <label htmlFor="search-bar">
           <input
             type="search"

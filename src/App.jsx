@@ -40,7 +40,7 @@ function App() {
 
   const handleSearchChange = async (e) => {
     await getData(e.target.value);
-    setSearchResults({ ...searchResults, [e.target.value]: e.target.value });
+    setSearchResults({ ...searchResults, [e.target.value]: e.targe.value });
   };
 
   return (
