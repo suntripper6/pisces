@@ -70,9 +70,7 @@ const Search = ({ searchResults, setSearchResults }) => {
           </div>
         ))}
       </div>
-      {/* <SearchResultsContext.Provider value={searchResults}> */}
       <SearchDetails searchResults={searchResults} />
-      {/* </SearchResultsContext.Provider> */}
     </div>
   );
 };
