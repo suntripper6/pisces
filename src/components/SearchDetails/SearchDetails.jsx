@@ -1,3 +1,7 @@
+// *****************
+// THANK YOU TYLUS!!
+// *****************
+
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../../components/SearchDetails/SearchDetails.css";

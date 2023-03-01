@@ -1,3 +1,6 @@
+// *****************
+// THANK YOU TYLUS!!
+// *****************
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -8,8 +11,7 @@ import SearchDetails from "../SearchDetails/SearchDetails";
 
 const Search = ({ searchResults, setSearchResults }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [JSONcollection, setJSONCollection] = useState([]);
-  const [videos, setVideos] = useState([]);
+  const [NASAID, setNASAID] = useState([]);
 
   const search = "search?q=";
   const searchItem = "moon";
@@ -32,10 +34,21 @@ const Search = ({ searchResults, setSearchResults }) => {
             }
           });
         setSearchResults(response.data.collection.items);
+        console.log(searchResults[0].data[0].nasa_id);
+        searchResults.map((assetID, index) => setNASAID(assetID));
+        console.log(NASAID);
       }
     };
     getData();
   }, [searchQuery]);
+
+  // MAKE CALL FOR https://images-api.nasa.gov/asset/{NASA_ID}
+  // useEffect(() =>{
+  //   const getAssets() = async () => {
+  //     const assetResponse = await axios.get(`${BASE_URL}/asset/${searchResults.collection}`)
+  //   }
+
+  // })
 
   let navigate = useNavigate();
   const showDetails = (index) => {

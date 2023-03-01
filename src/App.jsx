@@ -13,13 +13,7 @@ function App() {
   return (
     <main>
       <div className="App">
-        <ParticlesBG
-          style={{ position: "center", zIndex: -1, top: 0, left: 0 }}
-          color="#6e6d6d"
-          num={200}
-          type="cobweb"
-          bg={true}
-        />
+        <ParticlesBG color="#6e6d6d" num={200} type="cobweb" bg={true} />
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route
