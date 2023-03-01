@@ -6,7 +6,7 @@ body {
 }
 
 a {
-  color: rgb(100, 100, 100);
+  color: rgb(34, 163, 255) !important;
 }
 
 a:hover {
@@ -31,6 +31,7 @@ input {
   font-family: "Genos", sans-serif;
   font-size: 1.5rem;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 input,
@@ -67,8 +68,8 @@ button {
 
 .btn-login {
   grid-column: 2/3;
-  background-color: rgb(133, 219, 133);
+  background-color: rgba(119, 223, 2, 0.505);
   width: 70%;
-  margin-top: 1rem;
-  margin-left: 2.25rem;
+  margin-top: 0.5rem;
+  margin-left: 2.5rem;
 }

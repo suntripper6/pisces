@@ -19,9 +19,6 @@ const SearchDetails = ({ searchResults }) => {
   return details ? (
     <div className="details-grid">
       <div className="details-card">
-        <button className="btn-back">
-          <Link to="/search">Back to Search</Link>
-        </button>
         <div className="nasa-image">
           <img src={details.links[0].href} alt="nasa" />
         </div>
@@ -60,6 +57,11 @@ const SearchDetails = ({ searchResults }) => {
         <span>
           <span className="details">Location:</span> {details.data[0].location}
         </span>
+      </div>
+      <div className="btn-back">
+        <button>
+          <Link to="/search">Back to Search</Link>
+        </button>
       </div>
     </div>
   ) : (

@@ -10,7 +10,7 @@ img {
 }
 
 a {
-  color: rgb(100, 100, 100);
+  color: rgb(255, 255, 255);
 }
 
 button {
@@ -23,8 +23,8 @@ button {
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .details-grid > .details-card > span {
@@ -41,4 +41,14 @@ button {
 
 .nasa-image {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  margin-left: 24rem;
 }

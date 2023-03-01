@@ -11,12 +11,9 @@ import SearchDetails from "../SearchDetails/SearchDetails";
 
 const Search = ({ searchResults, setSearchResults }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [NASAID, setNASAID] = useState([]);
-  const [asset, setAsset] = useState([]);
-  const [mediaType, setMediaType] = useState([]);
 
   const search = "search?q=";
-  const searchItem = "moon";
+  // const searchItem = "jupiter";
 
   useEffect(() => {
     const getData = async () => {
@@ -36,28 +33,29 @@ const Search = ({ searchResults, setSearchResults }) => {
           }
         });
       setSearchResults(response.data.collection.items);
+      // }
     };
     // };
     getData();
   }, [searchQuery]);
 
-  useEffect(() => {
-    console.log(searchResults);
-    searchResults.map((assetID, index) => {
-      console.log(assetID.data[0].nasa_id);
-      return setNASAID(assetID);
-    });
-  }, [searchResults]);
+  // useEffect(() => {
+  //   console.log(searchResults);
+  //   searchResults.map((assetID, index) => {
+  //     console.log(assetID.data[0].nasa_id);
+  //     return setNASAID(assetID);
+  //   });
+  // }, [searchResults]);
 
-  // MAKE CALL FOR https://images-api.nasa.gov/asset/{NASA_ID}
-  useEffect(() => {
-    const getAssets = async () => {
-      const assetResponse = await axios.get(`${BASE_URL}/asset/${NASAID}`);
-      console.log("ASSET RESPONSE");
-      console.log(assetResponse.data.result);
-    };
-    getAssets();
-  }, []);
+  // // MAKE CALL FOR https://images-api.nasa.gov/asset/{NASA_ID}
+  // useEffect(() => {
+  //   const getAssets = async () => {
+  //     const assetResponse = await axios.get(`${BASE_URL}/asset/${NASAID}`);
+  //     console.log("ASSET RESPONSE");
+  //     console.log(assetResponse.data.result);
+  //   };
+  //   getAssets();
+  // }, []);
 
   let navigate = useNavigate();
   const showDetails = (index) => {
@@ -65,33 +63,39 @@ const Search = ({ searchResults, setSearchResults }) => {
   };
 
   return (
-    <div className="form-container">
-      <div className="greeting">
-        <h1 className="search-only">Search NASA </h1>
-      </div>
-      <div>
-        <label htmlFor="search-bar">
-          <input
-            type="search"
-            name="search-bar"
-            id="search-bar"
-            className="search"
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </label>
-      </div>
+    <section>
+      <div className="form-container">
+        <div className="greeting">
+          <h1 className="search-only">Search NASA </h1>
+        </div>
+        <div>
+          <label htmlFor="search-bar">
+            <input
+              type="search"
+              name="search-bar"
+              id="search-bar"
+              className="search"
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </label>
+        </div>
 
-      <div className="grid">
-        {searchResults.map((result, index) => (
-          <div key={index} className="card" onClick={() => showDetails(index)}>
-            {result.links ? (
-              <img src={result.links[0].href} alt="nasa" />
-            ) : null}
-          </div>
-        ))}
+        <div className="grid">
+          {searchResults.map((result, index) => (
+            <div
+              key={index}
+              className="card"
+              onClick={() => showDetails(index)}
+            >
+              {result.links ? (
+                <img src={result.links[0].href} alt="nasa" />
+              ) : null}
+            </div>
+          ))}
+        </div>
+        <SearchDetails searchResults={searchResults} />
       </div>
-      <SearchDetails searchResults={searchResults} />
-    </div>
+    </section>
   );
 };
 
