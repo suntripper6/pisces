@@ -4,15 +4,15 @@ import axios from "axios";
 import { BASE_URL } from "../../globals";
 import "../../components/Search/Search.css";
 import "../../context/SearchResultsContext";
-import { SearchResultsContext } from "../../context/SearchResultsContext";
 import SearchDetails from "../SearchDetails/SearchDetails";
 
 const Search = ({ searchResults, setSearchResults }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  //const [searchResults, setSearchResults] = useState([]);
+  const [JSONcollection, setJSONCollection] = useState([]);
+  const [videos, setVideos] = useState([]);
 
   const search = "search?q=";
-  const searchItem = "space";
+  const searchItem = "moon";
 
   useEffect(() => {
     const getData = async () => {
@@ -31,9 +31,7 @@ const Search = ({ searchResults, setSearchResults }) => {
               console.log(`Errors: ${error.message}`);
             }
           });
-        console.log(response);
         setSearchResults(response.data.collection.items);
-        console.log(searchResults);
       }
     };
     getData();

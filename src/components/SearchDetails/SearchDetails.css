@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 65px;
+}
+
+img {
+  height: 250px;
+  width: 250px;
+}
+
+a {
+  color: #fff;
+}
+
+button {
+  background-color: #000;
+}
+
+.details-grid,
+.details-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.details-grid > .details-card > span {
+  font-size: 2rem;
+}
+
+.details-card {
+  align-items: left;
+}
+
+.details {
+  font-weight: bold;
+}
+
+.nasa-image {
+  display: flex;
+}
