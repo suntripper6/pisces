@@ -46,7 +46,7 @@ const Register = () => {
           <h1 className="greeting">Register</h1>
         </div>
         <form>
-          <label htmlFor="username">username: </label>
+          <label htmlFor="username"></label>
           <input
             autoComplete="off"
             type="text"
@@ -60,7 +60,7 @@ const Register = () => {
             value={user}
             placeholder="username"
           />
-          <label htmlFor="password">password: </label>
+          <label htmlFor="password"></label>
           <input
             type="password"
             id="password"
@@ -72,7 +72,7 @@ const Register = () => {
             value={password}
             placeholder="password"
           />
-          <label htmlFor="confirm-password">confirm password: </label>
+          <label htmlFor="confirm-password"></label>
           <input
             type="password"
             id="confirm-password"
@@ -88,6 +88,10 @@ const Register = () => {
             <Link to="/search">Submit</Link>
           </button>
         </form>
+        <p className="register-here">
+          Remember login?
+          <Link to="/">Login Here</Link>
+        </p>
       </div>
     </section>
   );

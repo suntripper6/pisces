@@ -33,7 +33,7 @@ const Login = () => {
         </div>
 
         <form onSubmit={handleSubmit}>
-          <label htmlFor="username">username:</label>
+          <label htmlFor="username"></label>
           <input
             className="input-group"
             type="text"
@@ -45,7 +45,7 @@ const Login = () => {
             required
           ></input>
 
-          <label htmlFor="password">password:</label>
+          <label htmlFor="password"></label>
           <input
             className="input-group"
             type="password"
@@ -61,7 +61,7 @@ const Login = () => {
           </button>
         </form>
         <p className="register-here">
-          no account?
+          No Account?
           <Link to="/register">Register Here</Link>
         </p>
       </div>

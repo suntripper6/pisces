@@ -6,7 +6,7 @@ body {
 }
 
 a {
-  color: rgb(70, 56, 201);
+  color: rgb(100, 100, 100);
 }
 
 a:hover {
@@ -70,5 +70,5 @@ button {
   background-color: rgb(133, 219, 133);
   width: 70%;
   margin-top: 1rem;
-  margin-left: -2.25rem;
+  margin-left: 2.25rem;
 }

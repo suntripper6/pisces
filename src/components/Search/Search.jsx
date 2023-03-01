@@ -12,30 +12,32 @@ import SearchDetails from "../SearchDetails/SearchDetails";
 const Search = ({ searchResults, setSearchResults }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [NASAID, setNASAID] = useState([]);
+  const [asset, setAsset] = useState([]);
+  const [mediaType, setMediaType] = useState([]);
 
   const search = "search?q=";
   const searchItem = "moon";
 
   useEffect(() => {
     const getData = async () => {
-      if (searchQuery === "" || searchQuery === null) {
-        const response = await axios.get(`${BASE_URL}/${search}${searchItem}`);
-        setSearchResults(response.data.collection.items);
-      } else {
-        const response = await axios
-          .get(`${BASE_URL}/${search}${searchQuery}`)
-          .catch((error) => {
-            if (error.response) {
-              console.log(`Error response status: ${error.response.status}`);
-            } else if (error.request) {
-              console.log(`Error response request: ${error.response.request}`);
-            } else {
-              console.log(`Errors: ${error.message}`);
-            }
-          });
-        setSearchResults(response.data.collection.items);
-      }
+      // if (searchQuery === "" || searchQuery === null) {
+      //   const response = await axios.get(`${BASE_URL}/${search}${searchItem}`);
+      //   setSearchResults(response.data.collection.items);
+      // } else {
+      const response = await axios
+        .get(`${BASE_URL}/${search}${searchQuery}`)
+        .catch((error) => {
+          if (error.response) {
+            console.log(`Error response status: ${error.response.status}`);
+          } else if (error.request) {
+            console.log(`Error response request: ${error.response.request}`);
+          } else {
+            console.log(`Errors: ${error.message}`);
+          }
+        });
+      setSearchResults(response.data.collection.items);
     };
+    // };
     getData();
   }, [searchQuery]);
 
@@ -51,7 +53,7 @@ const Search = ({ searchResults, setSearchResults }) => {
   useEffect(() => {
     const getAssets = async () => {
       const assetResponse = await axios.get(`${BASE_URL}/asset/${NASAID}`);
-      console.log("assetresponse");
+      console.log("ASSET RESPONSE");
       console.log(assetResponse.data.result);
     };
     getAssets();
