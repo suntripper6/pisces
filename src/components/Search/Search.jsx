@@ -22,6 +22,11 @@ const Search = ({ searchResults, setSearchResults, nasaID, setNasaID }) => {
         })
         .then((response) => {
           setSearchResults(response.data.collection.items);
+        })
+        .catch((error) => {
+          console.log(error.response);
+          console.log(error.request);
+          console.log(error.config);
         });
     };
     getData();
