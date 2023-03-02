@@ -21,7 +21,7 @@ const NasaMedia = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
   // MAKE CALL FOR "https://images-api.nasa.gov/search/{parameter}";
-  const getData = (e) => {
+  const getMedia = (e) => {
     e.preventDefault();
     axios
       .get(BASE_URL, {
@@ -45,6 +45,23 @@ const NasaMedia = ({
     });
   };
 
+  // // MAKE CALL FOR "https://images-api.nasa.gov/asset/{NASA_ID}""
+  // useEffect(() => {
+  //   const getAssets = async () => {
+  //     await axios
+  //       .get(`${NASA_ASSET_URL}${nasaID}`)
+  //       .then((response) => {
+  //         setNasaMedia(response.data.collection.items);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error.response);
+  //         console.log(error.request);
+  //         console.log(error.config);
+  //       });
+  //   };
+  //   getAssets();
+  // }, [nasaID]);
+
   let navigate = useNavigate();
   const showDetails = (index) => {
     navigate(`${index}`);
@@ -56,7 +73,7 @@ const NasaMedia = ({
         <div className="greeting">
           <h1 className="search-only">Search NASA </h1>
         </div>
-        <form onSubmit={getData}>
+        <form onSubmit={getMedia}>
           <div>
             <label htmlFor="search-bar">
               <input
@@ -79,8 +96,10 @@ const NasaMedia = ({
                 value={mediaType}
                 onChange={(e) => setMediaType(e.target.value)}
               >
-                <option value="image">images</option>
-                <option value="video">video</option>
+                <optgroup>
+                  <option value="image">images</option>
+                  <option value="video">video</option>
+                </optgroup>
               </select>
             </label>
           </div>
