@@ -70,6 +70,8 @@ Add React D3 library for visualization/animation for the weather on Mars.
 
 ## Resources
 
+[ParticlesBG](https://www.npmjs.com/package/particles-bg)
+
 [W3 Schools](https://www.w3schools.com/)
 
 [Axios Documentation](https://axios-http.com/)
