@@ -9,6 +9,7 @@ import SearchDetails from "./components/SearchDetails/SearchDetails";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
+  const [nasaID, setNasaID] = useState([]);
 
   return (
     <main>

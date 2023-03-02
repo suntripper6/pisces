@@ -9,7 +9,7 @@ import "../../components/Search/Search.css";
 import "../../context/SearchResultsContext";
 import SearchDetails from "../SearchDetails/SearchDetails";
 
-const Search = ({ searchResults, setSearchResults }) => {
+const Search = ({ searchResults, setSearchResults, nasaID, setNasaID }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
