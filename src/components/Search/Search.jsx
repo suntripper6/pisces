@@ -39,12 +39,10 @@ const Search = ({
         });
     };
     getData();
-  }, [searchQuery, searchResults]);
-
-  searchResults.map((result) => {
-    return setNasaID(result.data[0].nasa_id);
-  });
-  console.log(nasaID);
+    searchResults.map((result) => {
+      return setNasaID(result.data[0].nasa_id);
+    });
+  }, [searchQuery]);
 
   // MAKE CALL FOR "https://images-api.nasa.gov/asset/{NASA_ID}""
   useEffect(() => {
