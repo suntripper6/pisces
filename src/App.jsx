@@ -6,11 +6,13 @@ import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 import Search from "./components/Search/Search";
 import SearchDetails from "./components/SearchDetails/SearchDetails";
+import NasaMedia from "./components/NasaMedia/NasaMedia";
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [nasaID, setNasaID] = useState([]);
   const [nasaMedia, setNasaMedia] = useState([]);
+  const [mediaType, setMediaType] = useState("image");
 
   return (
     <main>
@@ -33,13 +35,15 @@ function App() {
           <Route
             path="/search"
             element={
-              <Search
+              <NasaMedia
                 searchResults={searchResults}
                 setSearchResults={setSearchResults}
                 nasaID={nasaID}
                 setNasaID={setNasaID}
                 nasaMedia={nasaMedia}
                 setNasaMedia={setNasaMedia}
+                mediaType={mediaType}
+                setMediaType={setMediaType}
               />
             }
           ></Route>
@@ -53,6 +57,8 @@ function App() {
                 setNasaID={setNasaID}
                 nasaMedia={nasaMedia}
                 setNasaMedia={setNasaMedia}
+                mediaType={mediaType}
+                setMediaType={setMediaType}
               />
             }
           ></Route>

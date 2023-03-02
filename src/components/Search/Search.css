@@ -20,7 +20,13 @@ button {
   grid-column: 2/3;
 }
 
+select {
+  text-align-last: center;
+  direction: ltr;
+}
+
 .search-container,
+.select-mediatype,
 .search {
   display: flex;
   flex-direction: column;
@@ -36,6 +42,47 @@ button {
   padding-bottom: 0.5rem;
   margin-left: 20rem;
   margin-right: 20rem;
+}
+
+.select-mediatype select {
+  background-color: #0a6fc1;
+  color: rgba(249, 249, 249, 0.9);
+  padding: 12px;
+  width: 250px;
+  border: none;
+  border-radius: 30px;
+  font-size: 2rem;
+  font-family: "Genos", sans-serif;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  appearance: button;
+  outline: none;
+  margin-top: -1rem;
+}
+
+.select-mediatype::before {
+  font-family: "Genos", sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: rgba(249, 249, 249, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.select-mediatype:hover::before {
+  font-family: "Genos", sans-serif;
+  color: rgba(249, 249, 249, 0.6);
+  background-color: rgba(249, 249, 249, 0.2);
+}
+
+.select-mediatype select option {
+  font-family: "Genos", sans-serif;
+  font-size: 1rem;
+  padding: 30px;
 }
 
 /* .input-group {
