@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Genos:wght@100;300;400;500;700&display=swap");
 
 a {
-  color: rgb(34, 163, 255) !important;
+  color: rgb(93, 182, 255) !important;
   text-decoration: none;
 }
 
 a:hover {
-  color: rgb(13, 0, 255) !important;
+  color: rgb(232, 132, 16) !important;
 }
 
 form {
