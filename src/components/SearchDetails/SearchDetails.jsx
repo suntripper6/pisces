@@ -1,5 +1,5 @@
 // *****************
-// THANK YOU TYLUS!!
+// THANK YOU TYLUS for the props drilling!
 // *****************
 
 import { useEffect, useState } from "react";
