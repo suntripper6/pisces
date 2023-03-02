@@ -10,13 +10,14 @@ import SearchDetails from "./components/SearchDetails/SearchDetails";
 function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [nasaID, setNasaID] = useState([]);
+  const [nasaMedia, setNasaMedia] = useState([]);
 
   return (
     <main>
       <div className="App">
         <ParticlesBG
-          color="#6e6e6e"
-          num={1000}
+          color="#254FB2"
+          num={2000}
           type="cobweb"
           bg={{
             position: "absolute",
@@ -35,6 +36,10 @@ function App() {
               <Search
                 searchResults={searchResults}
                 setSearchResults={setSearchResults}
+                nasaID={nasaID}
+                setNasaID={setNasaID}
+                nasaMedia={nasaMedia}
+                setNasaMedia={setNasaMedia}
               />
             }
           ></Route>
@@ -44,6 +49,10 @@ function App() {
               <SearchDetails
                 searchResults={searchResults}
                 setSearchResults={setSearchResults}
+                nasaID={nasaID}
+                setNasaID={setNasaID}
+                nasaMedia={nasaMedia}
+                setNasaMedia={setNasaMedia}
               />
             }
           ></Route>

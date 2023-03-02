@@ -9,9 +9,17 @@ import "../../components/Search/Search.css";
 import "../../context/SearchResultsContext";
 import SearchDetails from "../SearchDetails/SearchDetails";
 
-const Search = ({ searchResults, setSearchResults, nasaID, setNasaID }) => {
+const Search = ({
+  searchResults,
+  setSearchResults,
+  nasaID,
+  setNasaID,
+  nasaMedia,
+  setNasaMedia,
+}) => {
   const [searchQuery, setSearchQuery] = useState("");
 
+  // MAKE CALL FOR "https://images-api.nasa.gov/search/{parameter}";
   useEffect(() => {
     const getData = async () => {
       await axios
@@ -19,6 +27,7 @@ const Search = ({ searchResults, setSearchResults, nasaID, setNasaID }) => {
           params: {
             q: searchQuery,
           },
+          withCredentials: false,
         })
         .then((response) => {
           setSearchResults(response.data.collection.items);
@@ -30,17 +39,20 @@ const Search = ({ searchResults, setSearchResults, nasaID, setNasaID }) => {
         });
     };
     getData();
-  }, [searchQuery, setSearchResults]);
+  }, [searchQuery]);
 
-  // MAKE CALL FOR https://images-api.nasa.gov/asset/{NASA_ID}
+  searchResults.map((result, index) => {
+    return setNasaID(result.data[0].nasa_id);
+  });
+  console.log(searchResults);
+
+  // MAKE CALL FOR "https://images-api.nasa.gov/asset/{NASA_ID}""
   useEffect(() => {
     const getAssets = async () => {
       await axios
-        .get(NASA_ASSET_URL, {
-          params: "",
-        })
+        .get(`${NASA_ASSET_URL}${nasaID}`)
         .then((response) => {
-          console.log(response);
+          setNasaMedia(response.data.collection.items);
         })
         .catch((error) => {
           console.log(error.response);
@@ -49,7 +61,9 @@ const Search = ({ searchResults, setSearchResults, nasaID, setNasaID }) => {
         });
     };
     getAssets();
-  }, []);
+  }, [nasaID]);
+
+  console.log(nasaMedia);
 
   let navigate = useNavigate();
   const showDetails = (index) => {
