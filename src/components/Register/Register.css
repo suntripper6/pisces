@@ -1,18 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Genos:wght@100;300;400;500;700&display=swap");
 
-body {
-  height: 100vh;
-  padding-top: 25%;
-}
-
-a {
-  color: rgb(70, 56, 201);
-}
-
-a:hover {
-  color: rgb(0, 0, 0);
-}
-
 form {
   display: grid;
   grid-template-columns: 200px, 1fr;
@@ -38,7 +25,7 @@ button {
   grid-column: 2/3;
 }
 
-.form-container,
+.register-container,
 .input-username,
 .input-password,
 .input-confirm-password,
@@ -49,10 +36,10 @@ button {
   justify-content: center;
 }
 
-.form-container {
+.register-container {
   font-size: 2rem;
-  background-color: rgb(204, 204, 204);
-  opacity: 0.8;
+  background-color: rgb(249, 249, 249);
+  opacity: 0.7;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-left: 20rem;
@@ -66,9 +53,9 @@ button {
     justify-content: center;
   } */
 
-.btn-submit {
+.btn-register {
   grid-column: 2/3;
-  background-color: rgb(133, 219, 133);
+  background-color: rgb(0, 0, 0);
   width: 70%;
   margin-top: 1rem;
   margin-left: 3rem;

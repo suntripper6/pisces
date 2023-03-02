@@ -41,7 +41,7 @@ const Register = () => {
 
   return (
     <section>
-      <div className="form-container">
+      <div className="register-container">
         <div className="greeting">
           <h1 className="greeting">Register</h1>
         </div>
@@ -84,7 +84,7 @@ const Register = () => {
             value={passwordMatch}
             placeholder="confirm password"
           />
-          <button className="btn-submit">
+          <button className="btn-register">
             <Link to="/search">Submit</Link>
           </button>
         </form>

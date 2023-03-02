@@ -15,13 +15,13 @@ function App() {
       <div className="App">
         <ParticlesBG
           color="#6e6e6e"
-          num={4000}
+          num={1000}
           type="cobweb"
           bg={{
             position: "absolute",
             zIndex: -1,
             width: "auto",
-            height: "750%",
+            height: "500%",
             top: 0,
             left: 0,
           }}
