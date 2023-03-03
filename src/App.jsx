@@ -35,7 +35,7 @@ function App() {
           <Route
             path="/search"
             element={
-              <NasaMedia
+              <Search
                 searchResults={searchResults}
                 setSearchResults={setSearchResults}
                 nasaID={nasaID}

@@ -44,24 +44,24 @@ const Search = ({
     });
   }, [searchQuery]);
 
-  // MAKE CALL FOR "https://images-api.nasa.gov/asset/{NASA_ID}""
-  useEffect(() => {
-    const getAssets = async () => {
-      await axios
-        .get(`${NASA_ASSET_URL}${nasaID}`)
-        .then((response) => {
-          setNasaMedia(response.data.collection.items);
-        })
-        .catch((error) => {
-          console.log(error.response);
-          console.log(error.request);
-          console.log(error.config);
-        });
-    };
-    getAssets();
-  }, [nasaID]);
+  // // MAKE CALL FOR "https://images-api.nasa.gov/asset/{NASA_ID}""
+  // useEffect(() => {
+  //   const getAssets = async () => {
+  //     await axios
+  //       .get(`${NASA_ASSET_URL}${nasaID}`)
+  //       .then((response) => {
+  //         setNasaMedia(response.data.collection.items);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error.response);
+  //         console.log(error.request);
+  //         console.log(error.config);
+  //       });
+  //   };
+  //   getAssets();
+  // }, [nasaID]);
 
-  console.log(nasaMedia);
+  // console.log(nasaMedia);
 
   let navigate = useNavigate();
   const showDetails = (index) => {

@@ -20,6 +20,8 @@ const NasaMedia = ({
   setMediaType,
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [nasaVideo, setNasaVideo] = useState([]);
+  let nasaVideos = new Set();
   // MAKE CALL FOR "https://images-api.nasa.gov/search/{parameter}";
   const getMedia = (e) => {
     e.preventDefault();
@@ -35,14 +37,14 @@ const NasaMedia = ({
         setSearchResults(response.data.collection.items);
       })
       .catch((error) => {
-        console.log(error.response);
-        console.log(error.request);
-        console.log(error.config);
+        // console.log(error.response);
+        // console.log(error.request);
+        // console.log(error.config);
       });
 
-    searchResults.map((result) => {
-      return setNasaID(result.data[0].nasa_id);
-    });
+    // searchResults.map((result) => {
+    //   return setNasaID(result.data[0].nasa_id);
+    // });
   };
 
   // // MAKE CALL FOR "https://images-api.nasa.gov/asset/{NASA_ID}""
@@ -61,6 +63,19 @@ const NasaMedia = ({
   //   };
   //   getAssets();
   // }, [nasaID]);
+
+  // console.log(searchResults);
+  if (mediaType === "video") {
+    for (let i = 0; i < searchResults.length; i++) {
+      // console.log(searchResults[i].data[0].nasa_id);
+      axios
+        .get(`${NASA_ASSET_URL}${searchResults[i].data[0].nasa_id}`)
+        .then((response) => {
+          nasaVideos(response.data.collection.items[0].href);
+        });
+    }
+  }
+  console.log(nasaVideos);
 
   let navigate = useNavigate();
   const showDetails = (index) => {
@@ -118,6 +133,9 @@ const NasaMedia = ({
               )}
             </div>
           ))}
+          {/* {nasaVideo.map((nv, index) => {
+            console.log(nv);
+          })} */}
         </div>
         <SearchDetails searchResults={searchResults} />
       </div>
