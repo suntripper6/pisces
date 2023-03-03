@@ -46,6 +46,8 @@ Register.jsx
 
 Search.jsx
 
+SearchDetails.jsx
+
 ImageDetails.jsx
 
 VideoDetails.jsx
@@ -59,6 +61,8 @@ react-tsparticles
 react-tachyons
 
 ## Strech Goals
+
+Add video and audio results to Search.jsx and SearchDetails.jsx
 
 Add pagination for the multiple search results.
 
